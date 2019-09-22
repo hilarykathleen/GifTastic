@@ -35,9 +35,10 @@ function displayButtons() {
     loadTopics();
     displayButtons();
 
-    //function to create layout
+    //function to create layout for giphy (structure for giphys)
 
     function giphyLayout(giphy) {
+        
        let images = giphy.images;
         
         return `<div class="giphy">
@@ -56,11 +57,16 @@ function displayButtons() {
                 </div>
                
         </div>`;
+
+        return template;
     }
     
 
+//function to loop through giphy array to display
 
 function displayGiphys(giphys) {
+
+    $('.giphy-display').empty(); //empty content first before creating giphy display
 
     for (let i = 0; i < giphys.length; i++) {
         let giphy = giphys[i];
@@ -69,6 +75,8 @@ function displayGiphys(giphys) {
         
     }
 }
+
+// function to grab giphy data from url 
 
 function fetchGiphy(value) {
 
@@ -80,15 +88,17 @@ function fetchGiphy(value) {
         let giphys = response.data;
 
         displayGiphys(giphys);
-        console.log(data);
+        // console.log(data);
 
     })
     .catch(function(error) {
-        console.log(error);
+        // console.log(error);
 
     });
 
 }
+
+//function to search for topic entered in for input by user
 
 function searchGiphy (event) {
     event.preventDefault();
@@ -100,27 +110,50 @@ function searchGiphy (event) {
 
     fetchGiphy(value);
 
-    // let url = endpoint + '&q=' + value + '&limit=10';
-
-    // $.ajax({ url: url })
-    // .then(function(data) {
-    //     console.log(data);
-
-    // })
-    // .catch(function(error) {
-    //     console.log(error);
-
-    // });
-
+    
     console.log(value);
     
 }
 
-//button on click grab 10 static and display on browser
+//function to animate or still giphy
+
+
+
+function imgClick() {
+   let giphyCard = $(this);
+
+    let image = giphyCard.find('img');
+    
+    let still = image.attr('data-still');
+    let animate = image.attr('data-animate');
+    let state = image.attr('data-state');
+
+    if (state === 'still') {
+        image.attr({
+            src: animate,
+            'data-state': 'animate'
+        });
+    } else {
+        image.attr({
+            src: still,
+            'data-state': 'still'
+        });
+    }
+}
+
+
+
 
 //events
 
+$(document).on('click', '.giphy-image', imgClick);
+
 $("#submit-button").on("click", searchGiphy); 
+
+
+
+
+
 
 
                         
