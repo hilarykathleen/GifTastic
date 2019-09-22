@@ -1,0 +1,18 @@
+.recent-search {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+.wrap-buttons {
+    border: 1px solid red;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.form-inline {
+    margin-top: 20px;
+    margin-left: 30px;
+}

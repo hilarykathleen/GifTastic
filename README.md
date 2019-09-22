@@ -2,11 +2,11 @@
 
 initial pseudocode
 
-Create an array of strings saved in variable topics
 Get api
-Choose a theme
-Loop appends a button for each string in an array
-On click function 
+
+Create an array of strings saved in variable topics
+for loop to create buttons for each element in the array
+button on click grab 10 static and display on browser
 Ajax grab giphy when clicked
 Static
 Dynamic function puts button on page static giphy
