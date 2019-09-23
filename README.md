@@ -1,15 +1,7 @@
 # GifTastic
 
-initial pseudocode
+### Overview
 
-Get api
+In this assignment, you'll use the GIPHY API to make a dynamic web page that populates with gifs of your choice. To finish this task, you must call the GIPHY API and use JavaScript and jQuery to change the HTML of your site.
 
-Create an array of strings saved in variable topics
-for loop to create buttons for each element in the array
-button on click grab 10 static and display on browser
-Ajax grab giphy when clicked
-Static
-Dynamic function puts button on page static giphy
-Once button it pushed giphy will animate
-Form takes value from user input adds to topics array
-Function call topic in array remakes buttons on page
+

@@ -1,5 +1,4 @@
 //initial values
-
 //Create an array of strings saved in variable topics
 
 let topics = ['cat', 'dog', 'armadillo', 'narwhal'];
@@ -28,6 +27,7 @@ function displayButtons() {
 
             $('.recent-search').append(button);
         }
+        
         localStorage.setItem('topics', JSON.stringify(topics));
 
     }
@@ -84,16 +84,12 @@ function fetchGiphy(value) {
 
     $.ajax({ url: url })
     .then(function(response) {
-        //response.data
         let giphys = response.data;
-
         displayGiphys(giphys);
-        // console.log(data);
 
     })
-    .catch(function(error) {
-        // console.log(error);
-
+        .catch(function(error) {
+       
     });
 
 }
@@ -109,15 +105,11 @@ function searchGiphy (event) {
     displayButtons();
 
     fetchGiphy(value);
-
-    
     console.log(value);
     
 }
 
 //function to animate or still giphy
-
-
 
 function imgClick() {
    let giphyCard = $(this);
@@ -141,14 +133,13 @@ function imgClick() {
     }
 }
 
-
-
-
-//events
+//on click events
 
 $(document).on('click', '.giphy-image', imgClick);
-
 $("#submit-button").on("click", searchGiphy); 
+
+//TODO add button to clear searched buttons
+
 
 
 
